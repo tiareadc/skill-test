@@ -59,7 +59,7 @@ Expected Results
 - Step 6: The cart page shows the correct product, and the checkout process is initiated without errors.
 - Step 7: A new account is created successfully, and the “Account Created” message is visible.
 - Step 8: The order is successfully placed, and the “Order Placed” message is displayed.
-- Step 9: Logged out form the account and yhe browser closes cleanly.
+- Step 9: Logged out from the account and the browser closes cleanly.
 
 ---
 ## **Instructions for running the test**
