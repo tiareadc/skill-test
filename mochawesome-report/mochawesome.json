@@ -1,0 +1,140 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-01-14T20:27:16.457Z",
+    "end": "2025-01-14T20:27:24.311Z",
+    "duration": 7854,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "c681b635-c529-45cf-8d2a-c2bd72dd4e1d",
+      "title": "",
+      "fullFile": "/Users/tiaredominguez/Documents/Apply Digital Skill Test/tests/automationExercise.spec.ts",
+      "file": "/tests/automationExercise.spec.ts",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "911f91b6-8d0d-4aa6-98ee-bbc48276cada",
+          "title": "Automation Exercise Test",
+          "fullFile": "/Users/tiaredominguez/Documents/Apply Digital Skill Test/tests/automationExercise.spec.ts",
+          "file": "/tests/automationExercise.spec.ts",
+          "beforeHooks": [
+            {
+              "title": "\"before all\" hook in \"Automation Exercise Test\"",
+              "fullTitle": "Automation Exercise Test \"before all\" hook in \"Automation Exercise Test\"",
+              "timedOut": false,
+              "duration": 473,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "browser = await playwright_1.chromium.launch();\npage = await browser.newPage();\nnavbarPage = new NavbarPage_1.NavbarPage(page);\nproductsPage = new ProductsPage_1.ProductsPage(page);\nproductDetailsPage = new ProductDetailsPage_1.ProductDetailsPage(page);\ncartPage = new CartPage_1.CartPage(page);\nsignupPage = new SignupPage_1.SignupPage(page);\npaymentPage = new PaymentPage_1.PaymentPage(page);\ncheckoutPage = new CheckoutPage_1.CheckoutPage(page);",
+              "err": {},
+              "uuid": "b652ea34-a8bd-433f-8df6-86fa408e6b76",
+              "parentUUID": "911f91b6-8d0d-4aa6-98ee-bbc48276cada",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after all\" hook in \"Automation Exercise Test\"",
+              "fullTitle": "Automation Exercise Test \"after all\" hook in \"Automation Exercise Test\"",
+              "timedOut": false,
+              "duration": 22,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await browser.close();",
+              "err": {},
+              "uuid": "4d83d1f3-4fb8-46df-bfc7-db45b65a3796",
+              "parentUUID": "911f91b6-8d0d-4aa6-98ee-bbc48276cada",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "Add product to cart and complete",
+              "fullTitle": "Automation Exercise Test Add product to cart and complete",
+              "timedOut": false,
+              "duration": 7355,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Generate random data using TestData\nconst user = testData_1.testData.generateUser();\nconst creditCard = testData_1.testData.generateCreditCard();\nconst quantity = testData_1.testData.generateQuantity();\n// Navigate through the application and add a product to the cart\nawait page.goto(baseURL);\nawait navbarPage.goToProducts();\nawait productsPage.viewProductDetails(3);\nawait productDetailsPage.addToCart(quantity);\nawait cartPage.proceedToCheckout();\nawait cartPage.goToRegisterLogin();\n// Register a new user\nawait signupPage.fillSignupForm(user.fullName, user.email);\nawait signupPage.completeSignup(user.password, user.fullName.split(' ')[0], user.fullName.split(' ')[1] || '', user.address, user.state, user.city, user.zipCode, user.phoneNumber);\n(0, assert_1.strict)(await page.locator('[data-qa=\"account-created\"]').isVisible(), 'Account created message should be visible');\n// Checkout and place an order\nawait navbarPage.goToCart();\nawait cartPage.proceedToCheckout();\nawait checkoutPage.placeOrder();\nawait paymentPage.completePayment(user.fullName, creditCard.number, creditCard.cvv, creditCard.expiryMonth.toString(), creditCard.expiryYear.toString());\n(0, assert_1.strict)(await page.locator('[data-qa=\"order-placed\"]').isVisible(), 'Order placed message should be visible');\n// Logout\nawait navbarPage.logout();\nconst currentUrl = page.url();\nassert_1.strict.equal(currentUrl, baseURL + 'login', 'URL should be the login page');",
+              "err": {},
+              "uuid": "e90feab6-d2e2-48b0-b4b5-a8adbe637728",
+              "parentUUID": "911f91b6-8d0d-4aa6-98ee-bbc48276cada",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "e90feab6-d2e2-48b0-b4b5-a8adbe637728"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 7355,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 15000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 15000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "11.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "[object Object]": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

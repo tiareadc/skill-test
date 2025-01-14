@@ -1,0 +1,12 @@
+{
+  "require": ["ts-node/register"],
+  "reporter": "mochawesome",
+  "reporterOptions": {
+    "reportDir": "mochawesome-report",
+    "reportFilename": "report",
+    "overwrite": true,
+    "html": true,
+    "json": false
+  },
+  "timeout": 15000
+}
