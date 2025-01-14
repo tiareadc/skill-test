@@ -1,5 +1,5 @@
 <!-- BEGINNING -->
-# Framework for e2e tests in Automation Exercise for Apply Digital
+# Framework for e2e tests in Automation Exercise
 
 ---
 ## **CodeOwner**
